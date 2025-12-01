@@ -118,6 +118,128 @@
         opacity: 0.8;
         line-height: 1.6;
             }
+        .hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 40px;
+
+    background: radial-gradient(circle at top, #091423, #020409 80%);
+    animation: bgMove 15s infinite alternate ease-in-out;
+    overflow: hidden;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 20%; }
+        100% { background-position: 100% 80%; }
+    }
+    
+    .hero::before {
+        content: "";
+        position: absolute;
+        width: 130%;
+        height: 130%;
+        background: url('https://i.ibb.co/LYwkp6G/particles.png');
+        opacity: 0.4;
+        animation: floatParticles 25s linear infinite;
+    }
+    
+    @keyframes floatParticles {
+        from { transform: translateY(0); }
+        to { transform: translateY(-300px); }
+    }
+    
+    /* === Title === */
+    .hero-title {
+        font-size: 70px;
+        font-family: "Orbitron", sans-serif;
+        font-weight: 800;
+        letter-spacing: 4px;
+        line-height: 1.2;
+    
+        color: #00eaff;
+        text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff;
+        animation: titleGlow 3s ease-in-out infinite;
+    }
+    
+    .hero-title span {
+        color: #b73cff;
+        text-shadow: 0 0 20px #b73cff, 0 0 40px #b73cff;
+    }
+    
+    @keyframes titleGlow {
+        0% { text-shadow: 0 0 15px #00eaff; }
+        50% { text-shadow: 0 0 45px #a200ff; }
+        100% { text-shadow: 0 0 15px #00eaff; }
+    }
+    
+    /* === Subtitle === */
+    .hero-desc {
+        margin-top: 20px;
+        font-size: 20px;
+        width: 70%;
+        max-width: 900px;
+        opacity: 0.85;
+        color: #d0eaff;
+    }
+    
+    /* === Buttons === */
+    .hero-buttons {
+        margin-top: 40px;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+    }
+    
+    .btn {
+        padding: 14px 35px;
+        font-size: 18px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .neon-pink {
+        background: linear-gradient(90deg, #ff00d4, #9d00ff);
+        box-shadow: 0 0 20px #d100ff;
+    }
+    
+    .neon-blue {
+        background: transparent;
+        border: 2px solid #00eaff;
+        color: #00eaff;
+        box-shadow: 0 0 15px #00eaff;
+    }
+    
+    .btn:hover {
+        transform: scale(1.07);
+        box-shadow: 0 0 30px #fff;
+    }
+    
+    /* === Glow Edge Frame === */
+    .glow-edges {
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        border-radius: 20px;
+        border: 3px solid transparent;
+        background: linear-gradient(135deg, #00eaff, #ae00ff) border-box;
+        mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        opacity: 0.15;
+        animation: edgePulse 6s infinite;
+    }
+    
+    @keyframes edgePulse {
+        0% { opacity: 0.12; }
+        50% { opacity: 0.25; }
+        100% { opacity: 0.12; }
+    }
         /* Using Inter font as default */
         body {
             margin: 0;
