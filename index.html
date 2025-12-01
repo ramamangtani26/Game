@@ -3,185 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rama's Gaming Portal - Homepage</title>
+    <title>Rama Mangtani | Gaming Technology Portfolio</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom neon effect -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0a0a2a',
+                        'accent-neon': '#00F0FF',
+                        'button-purple': '#A700FF',
+                        'button-pink': '#FF00A7',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px #00F0FF, 0 0 20px #00F0FF, 0 0 30px #00F0FF',
+                        'neon-button': '0 0 5px #A700FF, 0 0 15px #A700FF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-        /* Custom styles for the neon glow effect */
+        /* Custom styles for the intense neon glow */
         .neon-text {
-            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0ff, 0 0 82px #0ff, 0 0 92px #0ff, 0 0 102px #0ff, 0 0 151px #0ff;
+            text-shadow: 0 0 7px #fff, 0 0 10px #00F0FF, 0 0 21px #00F0FF, 0 0 42px #00F0FF, 0 0 82px #00F0FF, 0 0 92px #00F0FF, 0 0 102px #00F0FF, 0 0 151px #00F0FF;
+            animation: flicker 1.5s infinite alternate;
         }
-        .neon-border {
-            box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px rgba(255, 0, 255, 0.5);
-            transition: all 0.3s ease-in-out;
+
+        /* Subtle flicker animation for effect */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.8;
+            }
         }
-        .neon-border:hover {
-            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px rgba(0, 255, 255, 0.7);
-        }
-        /* Using Inter font as default */
-        body {
-            font-family: 'Inter', sans-serif;
+
+        /* Responsive spacing for card grid */
+        @media (min-width: 640px) {
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+<body class="bg-primary-dark text-white min-h-screen font-sans">
 
-    <!-- Header & Navigation -->
-    <header class="sticky top-0 bg-gray-900/90 backdrop-blur-sm z-10 border-b border-purple-500/30">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Full Name in Header -->
-            <h1 class="text-3xl font-extrabold text-white tracking-widest neon-text">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-primary-dark/90 backdrop-blur-sm border-b border-accent-neon/20 shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <div class="text-2xl font-extrabold tracking-wider neon-text text-accent-neon">
                 RAMA MANGTANI | GAMING PORTAL
-            </h1>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#" class="text-purple-300 hover:text-cyan-400 transition duration-300">Home</a>
-                <a href="#skills" class="text-purple-300 hover:text-cyan-400 transition duration-300">Skills</a>
-                <a href="#projects" class="text-purple-300 hover:text-cyan-400 transition duration-300">Projects</a>
-                <a href="#about" class="text-purple-300 hover:text-cyan-400 transition duration-300">Profile</a>
-            </nav>
-            <button class="md:hidden text-purple-300 hover:text-cyan-400">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-        </div>
+            </div>
+            <div class="space-x-4 hidden sm:flex">
+                <a href="#hero" class="text-white hover:text-accent-neon transition duration-300">Home</a>
+                <a href="#projects" class="text-white hover:text-accent-neon transition duration-300">Projects</a>
+                <a href="#skills" class="text-white hover:text-accent-neon transition duration-300">Skills</a>
+                <a href="#about" class="text-white hover:text-accent-neon transition duration-300">About Rama</a>
+            </div>
+        </nav>
     </header>
 
-    <main class="flex-grow">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
         <!-- Hero Section -->
-        <section class="py-20 text-center bg-gray-800/50">
-            <div class="container mx-auto px-4">
-                <h2 class="text-5xl md:text-7xl font-black mb-4 uppercase text-cyan-400 neon-text">
-                    Next Level Gaming Tech
-                </h2>
-                <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                    A portfolio showcasing innovative projects and concepts from the world of Gaming Technology.
-                </p>
-                <div class="flex justify-center space-x-4">
-                    <a href="#projects" class="px-8 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-lg hover:bg-purple-500 transition duration-300 neon-border">
-                        View Projects
+        <section id="hero" class="text-center py-20">
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-4 neon-text text-accent-neon">
+                NEXT LEVEL GAMING TECH
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                A portfolio showcasing innovative projects and concepts from the world of Gaming Technology, built by Rama Mangtani.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="#projects" class="px-6 py-3 bg-button-purple text-white font-bold rounded-xl transition duration-300 hover:bg-button-purple/80 shadow-neon-button hover:scale-105">
+                    Explore Projects
+                </a>
+                <a href="#about" class="px-6 py-3 border-2 border-accent-neon text-accent-neon font-bold rounded-xl transition duration-300 hover:bg-accent-neon/20 shadow-neon hover:scale-105">
+                    Meet the Author
+                </a>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-accent-neon/50 pb-2">Academic Gaming Projects</h2>
+
+            <div class="card-grid grid gap-8">
+
+                <!-- Project 1: Unity Game (Assignment Requirement) -->
+                <div class="bg-primary-dark border-2 border-accent-neon/50 rounded-xl p-6 shadow-xl hover:shadow-neon-button transition duration-300 hover:scale-[1.02]">
+                    <h3 class="text-2xl font-bold mb-2 text-accent-neon">Mini Golf Prototype (Unity)</h3>
+                    <p class="text-sm text-gray-400 mb-4 font-extrabold">Requirement: Game developed using a Cloud Service Platform (Hosted on GitHub Pages)</p>
+                    <p class="text-gray-300 mb-4">A physics-based prototype demonstrating fundamental game development principles in the Unity engine. This project fulfills the assignment requirement.</p>
+                    <a href="./mini-golf-game/index.html" class="inline-block px-4 py-2 bg-button-purple/80 text-white text-sm font-semibold rounded-lg hover:bg-button-purple transition duration-300">
+                        Launch Unity Game
                     </a>
-                    <a href="#skills" class="px-8 py-3 bg-transparent border-2 border-cyan-500 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-500/20 transition duration-300 neon-border">
-                        View Skills
+                </div>
+
+                <!-- Project 2: Battle of Cerium: Strike Command -->
+                <div class="bg-primary-dark border-2 border-accent-neon/50 rounded-xl p-6 shadow-xl hover:shadow-neon-button transition duration-300 hover:scale-[1.02]">
+                    <h3 class="text-2xl font-bold mb-2 text-accent-neon">Battle of Cerium: Strike Command</h3>
+                    <p class="text-sm text-gray-400 mb-4">Tenure: Oct '24 - Jan '25</p>
+                    <p class="text-gray-300">Aim: The player controls a space fighter to complete objectives in a vast alien environment, focusing on strategic command and space combat.</p>
+                    <a href="#" class="inline-block px-4 py-2 border border-accent-neon text-accent-neon text-sm font-semibold rounded-lg mt-4 hover:bg-accent-neon/20 transition duration-300">
+                        View Details
+                    </a>
+                </div>
+
+                <!-- Project 3: Base-Ball VR Game -->
+                <div class="bg-primary-dark border-2 border-accent-neon/50 rounded-xl p-6 shadow-xl hover:shadow-neon-button transition duration-300 hover:scale-[1.02]">
+                    <h3 class="text-2xl font-bold mb-2 text-accent-neon">Base-Ball VR Game</h3>
+                    <p class="text-sm text-gray-400 mb-4">Tenure: Feb '25 - Mar '26</p>
+                    <p class="text-gray-300">An immersive sports simulation designed to bring the excitement and challenge of baseball into a virtual reality environment.</p>
+                    <a href="#" class="inline-block px-4 py-2 border border-accent-neon text-accent-neon text-sm font-semibold rounded-lg mt-4 hover:bg-accent-neon/20 transition duration-300">
+                        View Details
+                    </a>
+                </div>
+
+                <!-- Project 4: Mythical Dungeon -->
+                <div class="bg-primary-dark border-2 border-accent-neon/50 rounded-xl p-6 shadow-xl hover:shadow-neon-button transition duration-300 hover:scale-[1.02]">
+                    <h3 class="text-2xl font-bold mb-2 text-accent-neon">Mythical Dungeon</h3>
+                    <p class="text-sm text-gray-400 mb-4">Tenure: Feb '25 - Mar '26</p>
+                    <p class="text-gray-300">A third-person dungeon-crawling action-adventure game focused on exploring ancient knowledge. Software used: Unity Game engine.</p>
+                    <a href="#" class="inline-block px-4 py-2 border border-accent-neon text-accent-neon text-sm font-semibold rounded-lg mt-4 hover:bg-accent-neon/20 transition duration-300">
+                        View Details
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Author Details Section (Core Profile Info) -->
+        <!-- Skills Section -->
+        <section id="skills" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-accent-neon/50 pb-2">Technical Skills & Expertise</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 rounded-lg bg-accent-neon/10 border border-accent-neon/50 text-accent-neon font-semibold transition duration-300 hover:bg-accent-neon/20">Unity Game Engine</div>
+                <div class="p-4 rounded-lg bg-accent-neon/10 border border-accent-neon/50 text-accent-neon font-semibold transition duration-300 hover:bg-accent-neon/20">Python / C++</div>
+                <div class="p-4 rounded-lg bg-accent-neon/10 border border-accent-neon/50 text-accent-neon font-semibold transition duration-300 hover:bg-accent-neon/20">UX / UI Design (Canva)</div>
+                <div class="p-4 rounded-lg bg-accent-neon/10 border border-accent-neon/50 text-accent-neon font-semibold transition duration-300 hover:bg-accent-neon/20">HTML / CSS (Web Dev)</div>
+                <div class="p-4 rounded-lg bg-accent-neon/10 border border-accent-neon/50 text-accent-neon font-semibold transition duration-300 hover:bg-accent-neon/20">MATLAB</div>
+                <div class="p-4 rounded-lg bg-accent-neon/10 border border-accent-neon/50 text-accent-neon font-semibold transition duration-300 hover:bg-accent-neon/20">Human Computer Interaction (NPTEL)</div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-lg font-semibold text-gray-300">Education: B. Tech (Gaming Technology), VIT University, Bhopal</p>
+            </div>
+        </section>
+
+        <!-- About Author Section -->
         <section id="about" class="py-16">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto bg-gray-800 p-8 md:p-10 rounded-xl neon-border border-2 border-purple-500/50">
-                    <h3 class="text-3xl font-bold mb-6 text-purple-400 border-b border-purple-500/50 pb-3">
-                        Author Profile: Rama Mangtani
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-                        <div class="p-4 bg-gray-700 rounded-lg">
-                            <p class="text-gray-400">Full Name:</p>
-                            <p class="text-white font-extrabold text-2xl">Rama Mangtani</p>
-                        </div>
-                        <div class="p-4 bg-gray-700 rounded-lg">
-                            <p class="text-gray-400">Registration No:</p>
-                            <p class="text-white font-extrabold text-2xl">23BCG10042</p>
-                        </div>
-                        <div class="p-4 bg-gray-700 rounded-lg md:col-span-2">
-                            <p class="text-gray-400">Specialization & University:</p>
-                            <p class="text-white font-semibold text-xl tracking-wider">B. Tech in Gaming Technology (VIT University, Bhopal)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- NEW SECTION: Skills and Certifications -->
-        <section id="skills" class="py-16 bg-gray-800">
-            <div class="container mx-auto px-4">
-                <h3 class="text-4xl font-extrabold text-center mb-10 text-white neon-text">
-                    Technical Skills & Expertise
-                </h3>
-                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <div class="p-6 bg-gray-700 rounded-xl neon-border border border-cyan-500/50">
-                        <h4 class="text-xl font-bold mb-3 text-cyan-400">Core Skills</h4>
-                        <ul class="list-none space-y-2 text-gray-300">
-                            <li class="flex items-center"><span class="text-purple-400 mr-2">&bull;</span> Python, C++</li>
-                            <li class="flex items-center"><span class="text-purple-400 mr-2">&bull;</span> Game Development (Unity)</li>
-                            <li class="flex items-center"><span class="text-purple-400 mr-2">&bull;</span> UX Design, Graphic Designing (Canva)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="p-6 bg-gray-700 rounded-xl neon-border border border-purple-500/50">
-                        <h4 class="text-xl font-bold mb-3 text-cyan-400">Certifications</h4>
-                        <ul class="list-none space-y-2 text-gray-300">
-                            <li class="flex items-start"><span class="text-purple-400 mr-2">&bull;</span> HTML, CSS for Web Developers (Coursera)</li>
-                            <li class="flex items-start"><span class="text-purple-400 mr-2">&bull;</span> MATLAB, VITYARTHI</li>
-                            <li class="flex items-start"><span class="text-purple-400 mr-2">&bull;</span> NPTEL (Human Computer Interaction)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="p-6 bg-gray-700 rounded-xl neon-border border border-cyan-500/50">
-                        <h4 class="text-xl font-bold mb-3 text-cyan-400">Achievements</h4>
-                        <ul class="list-none space-y-2 text-gray-300">
-                            <li class="flex items-start"><span class="text-purple-400 mr-2">&bull;</span> Completed 100 Days of Coding Challenge</li>
-                            <li class="flex items-start"><span class="text-purple-400 mr-2">&bull;</span> Top 12 Finalist in Innofusion 2.0 Hackathon</li>
-                            <li class="flex items-start"><span class="text-purple-400 mr-2">&bull;</span> Robox Club Head</li>
-                        </ul>
-                    </div>
+            <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-accent-neon/50 pb-2">Author Details</h2>
+            <div class="bg-primary-dark p-8 rounded-xl border-4 border-button-purple/50 shadow-neon-button max-w-xl mx-auto text-center">
+                <p class="text-3xl font-extrabold text-accent-neon mb-2">Rama Mangtani</p>
+                <p class="text-2xl font-extrabold text-white mb-6">23BCG10036</p>
+                <div class="text-left space-y-2 text-gray-300">
+                    <p><span class="font-bold text-accent-neon">Branch:</span> Gaming Technology</p>
+                    <p><span class="font-bold text-accent-neon">Current CGPA:</span> 8.97/10</p>
+                    <p><span class="font-bold text-accent-neon">Contact:</span> mangtanirama14@gmail.com</p>
+                    <p class="pt-4"><a href="https://www.linkedin.com/in/rama-mangtani-08945728b/" target="_blank" class="text-button-purple hover:underline transition duration-300">View LinkedIn Profile &rarr;</a></p>
                 </div>
             </div>
         </section>
 
-
-        <!-- Projects/Games Showcase (Updated with actual project details) -->
-        <section id="projects" class="py-16 bg-gray-900">
-            <div class="container mx-auto px-4">
-                <h3 class="text-4xl font-extrabold text-center mb-12 text-white neon-text">
-                    Academic Gaming Projects
-                </h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- Game Card 1: Battle of Cerium: Strike Command -->
-                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl neon-border">
-                        <div class="h-48 bg-cover bg-center" style="background-image: url('https://placehold.co/800x400/1e293b/a5b4fc?text=Strike+Command');"></div>
-                        <div class="p-6">
-                            <h4 class="text-2xl font-bold mb-2 text-cyan-400">Battle of Cerium: Strike Command</h4>
-                            <p class="text-sm text-gray-400 mb-4">Duration: Oct 2024 - Jan 2025</p>
-                            <p class="text-gray-300 mb-4">The player controls a space fighter to complete objectives in a vast alien environment. Focus on space combat mechanics and environment design.</p>
-                            <a href="#" class="inline-block px-4 py-2 text-sm bg-purple-600 rounded-lg hover:bg-purple-500 transition duration-300">View Project</a>
-                        </div>
-                    </div>
-
-                    <!-- Game Card 2: Base-Ball VR game -->
-                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl neon-border">
-                        <div class="h-48 bg-cover bg-center" style="background-image: url('https://placehold.co/800x400/1e293b/67e8f9?text=VR+Baseball');"></div>
-                        <div class="p-6">
-                            <h4 class="text-2xl font-bold mb-2 text-cyan-400">VR Base-Ball Game</h4>
-                            <p class="text-sm text-gray-400 mb-4">Duration: Feb 2025 - Mar 2026</p>
-                            <p class="text-gray-300 mb-4">An immersive sports simulation designed to bring the excitement and challenge of baseball into a virtual reality environment.</p>
-                            <a href="#" class="inline-block px-4 py-2 text-sm bg-purple-600 rounded-lg hover:bg-purple-500 transition duration-300">View Project</a>
-                        </div>
-                    </div>
-
-                    <!-- Game Card 3: Mythical Dungeon -->
-                    <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl neon-border">
-                        <div class="h-48 bg-cover bg-center" style="background-image: url('https://placehold.co/800x400/1e293b/c4b5fd?text=Mythical+Dungeon');"></div>
-                        <div class="p-6">
-                            <h4 class="text-2xl font-bold mb-2 text-cyan-400">Mythical Dungeon (Unity)</h4>
-                            <p class="text-sm text-gray-400 mb-4">Duration: Feb 2025 - Mar 2026</p>
-                            <p class="text-gray-300 mb-4">A third-person dungeon-crawling action-adventure game, built using the Unity Game Engine for ancient knowledge exploration.</p>
-                            <a href="#" class="inline-block px-4 py-2 text-sm bg-purple-600 rounded-lg hover:bg-purple-500 transition duration-300">View Project</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-cyan-500/30 py-6 mt-12">
-        <div class="container mx-auto px-4 text-center text-gray-500">
-            <p>&copy; 2025 Rama Mangtani Gaming Portal. Powered by Gaming Technology.</p>
-            <p class="text-sm mt-2">Designed and Developed by Rama Mangtani (23BCG10036)</p>
+    <footer class="bg-primary-dark/80 border-t border-accent-neon/20 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            <p>&copy; 2025 Rama Mangtani | Reg No: 23BCG10042</p>
+            <p>Gaming Technology Portfolio showcased on GitHub Pages.</p>
         </div>
     </footer>
 
